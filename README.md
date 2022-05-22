@@ -79,6 +79,22 @@ Here we create a pool with 4 bridges inside & 1 predicate feature
       C-->|Report BAD| D(Bad users);
 ```
 
+Pools are detected via a set of feature conditional calls. Admin may specify one or multiple feature checks.
+
+Feautre is a lambda function that checks users data (and some states from DB) with the binary outcome.
+
+For example:
+```yaml
+pools:
+  russian_1:
+    features:
+      - feature: is_russian
+        value: true
+```
+
+Here we check that number has russian prefix (+7).
+More features can be added to the `/api/features` directory.
+
 ### Potential improvements
 
 1. Penalize for a specific vector. not for the whole world. Like "bad in China".
