@@ -48,7 +48,7 @@ Expected request body:
 ```
 
 This request will increase or decrease *karma* counter for all users associated with the specific bridge.
-It can be invokes when bridge availability is analyzed (ban detected).
+It can be invoked when bridge availability is analyzed (ban detected).
 
 ## Configuration
 
@@ -111,7 +111,7 @@ More features can be added to the `/api/features` directory.
 * TODO
 * TODO
 * Aleksei Kaplin <aleksei.kaplin.2021@gmail.com>
-* TODO
+* Dmitry Perepelkin
 
 Special thanks:
 
