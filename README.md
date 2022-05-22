@@ -2,6 +2,10 @@
 
 Kvirin Message for DEMHACK 4
 
+## How to run
+
+`docker compose up`
+
 ## Components
 
 All components are parts of docker containers:
