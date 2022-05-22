@@ -20,10 +20,10 @@ Expected request body:
 
 ```json
   {
-  proto: signal,
-  cell: +7900100001001000,
-  nickname: …,
-  uid: …,
+  "proto": "signal",
+  "cell": "+7900100001001000",
+  "nickname": "…",
+  "uid": "…",
   }
 ```
 
@@ -38,8 +38,8 @@ Expected request body:
 
 ```json
   {
-  state: true,
-  bridge: "bridge_txt",
+  "state": "true",
+  "bridge": "bridge_txt",
   }
 ```
 
