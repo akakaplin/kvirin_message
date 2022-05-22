@@ -110,7 +110,7 @@ More features can be added to the `/api/features` directory.
 
 * TODO
 * TODO
-* Aleksei Kaplin <aleksei.kaplin.2021@gmail.com>
+* Aleksei Kaplin
 * Dmitry Perepelkin
 
 Special thanks:
