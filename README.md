@@ -85,6 +85,7 @@ Pools are detected via a set of feature conditional calls. Admin may specify one
 Feautre is a lambda function that checks users data (and some states from DB) with the binary outcome.
 
 For example:
+
 ```yaml
 pools:
   russian_1:
