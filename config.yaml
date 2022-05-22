@@ -39,6 +39,3 @@ pools:
       - quarantine_6
       - quarantine_7
       - quarantine_8
-limits:
-  good_limit: 2
-  bad_limit: -2

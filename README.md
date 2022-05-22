@@ -10,10 +10,6 @@ All components are parts of docker containers:
 2. API module - `api`
 3. Signal bot module - `signal`
 
-## Configuration
-
-The api
-
 ## Metrics
 
 Metrics are exposed over `/metrics` *prometheus* endpoint.
@@ -23,6 +19,25 @@ TODO: metrics list
 ## API
 
 TODO: add description
+
+## Configuration
+
+An example configudation:
+
+```yaml
+pools:
+  bad:
+    features:
+      - feature: is_bad
+        value: true
+    bridges:
+      - bad_1
+      - bad_2
+      - bad_3
+      - bad_4
+```
+
+Here we create a pool with 4 bridges inside & 1 predicate feature
 
 ## Anti-enumeration algo
 
