@@ -22,7 +22,7 @@ services:
       REDIS_PASSWORD: ZvjaWvGcsrxQTbcDHVpU3bW89cDKamDF
       DEBUG_METRICS: 1
     links:
-      - db
+      - cache
     volumes:
       - ./api:/app
       - ./config.yaml:/app/config.yaml
