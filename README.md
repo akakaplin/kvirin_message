@@ -10,15 +10,41 @@ All components are parts of docker containers:
 2. API module - `api`
 3. Signal bot module - `signal`
 
-## Metrics
-
-Metrics are exposed over `/metrics` *prometheus* endpoint.
-
-TODO: metrics list
-
 ## API
 
-TODO: add description
+API container endpoints:
+
+1. User can request his bridges via *POST* request to `/bridge`.
+
+Expected request body:
+
+```json
+  {
+  proto: signal,
+  cell: +7900100001001000,
+  nickname: …,
+  uid: …,
+  }
+```
+
+2. Metrics are exposed over *GET* `/metrics` *prometheus* endpoint.
+
+Supported metrics:
+TODO
+
+3. Admin can increase or decrease user *karma* using *POST* `/report` endpoint.
+
+Expected request body:
+
+```json
+  {
+  state: true,
+  bridge: "bridge_txt",
+  }
+```
+
+This request will increase or decrease *karma* counter for all users associated with the specific bridge.
+It can be invokes when bridge availability is analyzed (ban detected).
 
 ## Configuration
 
