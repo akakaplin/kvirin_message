@@ -30,11 +30,12 @@ def handle_main():
 ##    }
 @app.route('/bridge', methods=['GET'])
 def handle_bridge_get():
+    n = request.args.get('number', '79000111000')
     return handle_bridge_real({
         'proto': 'signal',
-        'cell': '79000111000',
+        'cell': n,
         'nickname': 'Test Test',
-        'uid': '123',
+        'uid': n,
     }, 'signal')
 
 

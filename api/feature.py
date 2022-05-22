@@ -9,11 +9,14 @@ def route_signal_user(user_data: dict, db: DB, pools: dict) -> str:
         pool = pools[name]
         ok = True
         for feature in pool.features:
-            name = feature['feature']
-            if name in FEATURES:
-                if FEATURES[name](user_data, db) != feature['value']:
+            fn = feature['feature']
+            if fn in FEATURES:
+                feature_check = FEATURES[fn](user_data, db)
+                print(fn)
+                print(feature_check)
+                if feature_check != feature['value']:
                     ok = False
-
+        
         if ok:
             return random.choice(pool.bridges), user_id
     

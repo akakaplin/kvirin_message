@@ -1,25 +1,18 @@
 pools:
-  bad:
+  known:
     features:
-      - feature: is_bad
+      - feature: check_known
+        value: true
+      - feature: is_working_hours
         value: true
     bridges:
-      - bad_1
-      - bad_2
-      - bad_3
-      - bad_4
-  good:
-    features:
-      - feature: is_good
-        value: true
-    bridges:
-      - good_1
-      - good_2
-      - good_3
-      - good_4
+      - known_1
+      - known_2
+      - known_3
+      - known_4
   suspicious:
     features:
-      - feature: is_russian
+      - feature: is_working_hours
         value: false
     bridges:
       - suspicious_1
@@ -28,7 +21,11 @@ pools:
       - suspicious_4
   quarantine:
     features:
+      - feature: check_known
+        value: false
       - feature: is_russian
+        value: true
+      - feature: is_working_hours
         value: true
     bridges:
       - quarantine_1

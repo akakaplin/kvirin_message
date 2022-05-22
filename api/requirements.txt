@@ -3,3 +3,4 @@ redis
 prometheus-flask-exporter
 dataclasses
 pyyaml
+pytz
