@@ -1,31 +1,42 @@
 # flask_web/app.py
 
-import os
 from flask import Flask, request, jsonify
-from redis import Redis
 from prometheus_flask_exporter import PrometheusMetrics
 
-from config import Pool, Config
+from db import init_db
+from config import load_config, Config
+from feature import route_signal_user
 
 app = Flask(__name__)
 metrics = PrometheusMetrics(app)
 
 # Connect to redis
-REDIS_HOST = os.getenv('REDIS_HOST')
-REDIS_PORT = os.getenv('REDIS_PORT')
-REDIS_PASSWORD = os.getenv('REDIS_PASSWORD')
-redis = Redis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD)
+config = load_config('config.yaml')
+db = init_db(config)
+
 
 @app.route('/')
 def handle_main():
     return 'Good Morning, Vietnam!'
 
 
+## Expected request
+##    {
+##    proto: signal,
+##    cell: +7900100001001000,
+##    nickname: …,
+##    uid: …,
+##    }
 @app.route('/bridge')
 def handle_bridge():
-    result = ["123"]
-    #TODO
-    return jsonify(result)
+    user_data = request.get_json(silent=True)
+    proto = user_data.get('proto', '')
+
+    if proto == 'signal':
+        result = route_signal_user(user_data, config, db)
+        return jsonify(result)
+
+    return '[]', 400
 
 
 @app.route('/report', methods=['POST'])
@@ -44,5 +55,7 @@ def handle_report():
         #TODO
         return 'Punished'
 
+
 if __name__ == '__main__':
+    db.reset_on_startup()
     app.run(debug=True, host='0.0.0.0', port=3000)
