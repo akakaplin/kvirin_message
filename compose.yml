@@ -25,6 +25,7 @@ services:
       - db
     volumes:
       - ./api:/app
+      - ./config.yaml:/app/config.yaml
 volumes:
   cache:
     driver: local
