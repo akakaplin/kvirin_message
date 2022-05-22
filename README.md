@@ -20,13 +20,20 @@ Metrics are exposed over `/metrics` *prometheus* endpoint.
 
 TODO: metrics list
 
+## API
+
+TODO: add description
+
 ## Anti-enumeration algo
 
-1. Different pools.
-2. Sticky sessions.
-3. User karma (±1 per time interval)
+1. *Different pools* - admin is able to configure different pools with different alighment mechanisms.
+2. *Sticky sessions* - Inside pools, users are assigned randomly.
+3. *User karma* - we can track users carma by IP (±1 per time interval) via `/report` endpoint.
 
-TODO: better description
+### Potential improvements
+
+1. Penalize for a specific vector. not for the whole world. Like "bad in China".
+2. Right now, sticky sessions are reset on a service restart. Probably, they should not.
 
 ## Authors
 
