@@ -1,0 +1,44 @@
+pools:
+  bad:
+    features:
+      - feature: is_bad
+        value: true
+    bridges:
+      - bad_1
+      - bad_2
+      - bad_3
+      - bad_4
+  good:
+    features:
+      - feature: is_good
+        value: true
+    bridges:
+      - good_1
+      - good_2
+      - good_3
+      - good_4
+  suspicious:
+    features:
+      - feature: is_russian
+        value: false
+    bridges:
+      - suspicious_1
+      - suspicious_2
+      - suspicious_3
+      - suspicious_4
+  quarantine:
+    features:
+      - feature: is_russian
+        value: true
+    bridges:
+      - quarantine_1
+      - quarantine_2
+      - quarantine_3
+      - quarantine_4
+      - quarantine_5
+      - quarantine_6
+      - quarantine_7
+      - quarantine_8
+limits:
+  good_limit: 2
+  bad_limit: -2
