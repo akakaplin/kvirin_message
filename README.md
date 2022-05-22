@@ -30,6 +30,14 @@ TODO: add description
 2. *Sticky sessions* - Inside pools, users are assigned randomly.
 3. *User karma* - we can track users carma by IP (±1 per time interval) via `/report` endpoint.
 
+```mermaid
+  graph TD;
+      A[Fresh new user] -->|Sticky session| B(Quarantine)
+      B-->|Report OK| C(Good users);
+      B-->|Report BAD| D(Bad users);
+      C-->|Report BAD| D(Bad users);
+```
+
 ### Potential improvements
 
 1. Penalize for a specific vector. not for the whole world. Like "bad in China".
