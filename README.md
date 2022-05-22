@@ -73,10 +73,11 @@ Here we create a pool with 4 bridges inside & 1 predicate feature
 
 ```mermaid
   graph TD;
-      A[Fresh new user] -->|Sticky session| B(Quarantine)
-      B-->|Report OK| C(Good users);
-      B-->|Report BAD| D(Bad users);
-      C-->|Report BAD| D(Bad users);
+      A[Fresh new user] -->|Sticky session (feaure 1)| B1(Quarantine pool 1)
+      A -->|Sticky session (feaure 2)| B2(Quarantine pool 2)
+      B1-->|Report OK| C(Good karma users);
+      B2-->|Report BAD| D(Bad karma users);
+      C-->|Report BAD| D;
 ```
 
 Pools are detected via a set of feature conditional calls. Admin may specify one or multiple feature checks.
